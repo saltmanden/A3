@@ -1,0 +1,6 @@
+#2
+matrix(c(0.1,0.1,0.4,0.3,0.05,0.05), 2, 3, TRUE)
+#2.1 - Beregn Z
+z <- 1 - (0.1 + 0.1 + 0.3 + 0.05 + 0.05)
+
+#2.2 - Beregn den forventede gevinst
