@@ -1,0 +1,66 @@
+#+TITLE: Opg3
+#+PROPERTY: session *R*
+#+PROPERTY: results output
+#+AUTHOR: Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Emil Mark-Hansen
+
+* OPGAVE 1
+
+** a
+\begin{verbatim}
+Hej
+\end{verbatim}
+
+#+begin_src R :exports results :results graphics :file img.png
+hist(rnorm(100))
+#+end_src
+
+#+results:
+file:img.png
+
+Some text
+$e = mc^2$
+
+** a
+Chancen for at få X kast der lander på krone i træk, er:
+$(\frac{1}{2})^X$
+
+Skrevet i R:
+\begin{verbatim}
+pmf = \(throws) 0.5^throws
+\end{verbatim}
+** b
+Profiten $f(X)$ er givet ved $f(a, X) = a2^X - a$
+
+Skrevet i R:
+\begin{verbatim}
+profit = \(buyin, throws) buyin * 2^(throws) - buyin
+\end{verbatim}
+** c
+\begin{align}
+E(X) = \sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b \\
+|f(x)|p(x) = b2^{x+1}0.5^x = b \\
+\sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b = \infty
+\end{align}
+
+Da $E(X)$ divergerer mod positiv uendelig har spillet ikke noget forventet udfald.
+* 2
+** a
+Da hele pmf $p$, bortset fra $p(x=-1,y=3)$ er kendt kan $z$ beregnes ved at isolere.
+
+| p(x, y) | y = −1 | y = 1 | y = 3 |
+| x = −1  |    0.1 |   0.1 | z     |
+| x = 1   |    0.3 |  0.05 | 0.05  |
+
+\begin{align}
+\int p(x,y) &= 1 \\
+1 &= 0.1 + 0.1 + 0.3 + 0.05 + 0.05 + z = 0.6 + z \\
+z &= 1 - 0.6 = 0.4
+\end{align}
+** b
+\begin{align}
+E[X+Y] &= E[X] + E[Y] \\
+E[X] &= -1*0.6 + 1*0.4 = -0.2 \\
+E[Y] &= -1*0.4 + 1*0.15 + 3*0.45 = 1.1 \\
+E[X+Y] &= 1.1 - 0.2 = 0.9
+\end{align}
+** c
