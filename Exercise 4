@@ -1,0 +1,20 @@
+#Exercise 4 - Birthdays
+i <- c(1:n)
+
+#a) - Opskriv pmf'en 
+dbinom(i,n,1/356)
+
+#b) - Opskriv simulante pmf
+
+
+#c) - Bevis b er en valid simuante pmf
+#Da alle værdierne er angivet som uafhængige, så er kovariansen = 0
+#Udregn konvariansen til 0
+
+#d) angiv et udtryk for at 2 har fødelsdag samme dag n= 10, 20, 50
+n <- 10
+dbinom(i, n, 1/356) [2] # = 3%, man kan også beskrive det som 1/356*10
+n <- 20 
+dbinom(i, n, 1/356) [2] # = 5%, man kan også beskrive det som 1/356*20
+n <- 50
+dbinom(i, n, 1/356) [2] # = 12%, man kan også beskrive det som 1/356*50 
