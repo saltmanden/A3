@@ -2,10 +2,11 @@
 #+PROPERTY: session *R*
 #+PROPERTY: results output
 #+AUTHOR: Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Emil Mark-Hansen
+#+OPTIONS: toc:nil
 
 * OPGAVE 1
 
-** a
+#+begin_comment
 \begin{verbatim}
 Hej
 \end{verbatim}
@@ -19,6 +20,7 @@ file:img.png
 
 Some text
 $e = mc^2$
+#+end_comment
 
 ** a
 Chancen for at få X kast der lander på krone i træk, er:
@@ -142,3 +144,49 @@ Sandsynligheden for at have allergien givet en positiv test er:
 
 * 4
 ** a
+\begin{equation}
+p_1(x) =
+\begin{cases}
+\frac{1}{365} & \quad if \quad x \in \{1,\cdots,365\}\\
+0 & \quad if \quad x \in \mathbb{R} \setminus \{1,\cdots,365\}
+\end{cases}
+\end{equation}
+** b
+Sandsynligheden for et givet udfald er stadig uniformt for enhver vektor $V = (X_1,\cdots,X_n)$.
+Derfor er sandsyndligheden for et specifikt udfald for alle elementer i vektoren produktet af de individuelle elementer.
+\[
+p_2(V) = \prod_{i=1}^n p_1(x_i)
+\]
+** c
+\begin{align}
+\forall x, \quad p(x) &\ge 0 \\
+\sum_x p(x) &= 1 \\
+\end{align}
+
+$p_2(x)$ er et produkt af to muglige faktorer $0$ og $\frac{1}{365}$,
+derfor er $Im(p_2) = [\frac{1}{365};0]$.
+\[0 \ge 0 \quad \frac{1}{365} \ge 0\]
+
+Udfaldsrummet er af størrelse $u^d$ hvor $d$ antal elementer i vektoren og $u$ er antallet af udfald per element.
+Da udfaldrummet er uniformt må et udfald give at $p(V) = \frac{1}{u^d}$.
+
+\begin{align}
+X_i \in \{1,\cdots,365\} \implies p_2(V) &= \prod_{i=1}^n \frac{1}{365} \\
+&= \frac{1}{365^n} \\
+&= \frac{1}{u^d}
+\end{align}
+** d
+Sandsynligheden for nogen i en gruppe har fødseldag på samme dag er det omvendte ($1-p$) af at ingen i gruppen har fødseldag på samme dag.
+Denne betingede sandsyndlighed er $1$ for $n=0$ og $1\frac{364}{365}$ for $n=1$,
+fordi den første fødseldag fjerner en dag fra udfaldsrummet hvor fødseldagene ikke kolliderer.
+Generelt er sekvensen $\frac{365}{365}\frac{364}{365}\cdots\frac{365-n}{365}$.
+Dette kan omskrives til $\frac{1}{365^n}\frac{365!}{(365-n)!}$.
+Dvs. $p(n) = 1- \frac{1}{365^n}\frac{365!}{(365-n)!}$.
+
+Skrevet i R (muligvis med forstærkede afrundingsfejl):
+#+begin_src R
+p = \(n) 1 - prod(c((365-n):365)/365)
+p(10) # 0.1411414
+p(20) # 0.4436883
+p(50) # 0.974432
+#+end_src

@@ -1,4 +1,4 @@
-% Created 2021-12-10 Fri 21:00
+% Created 2021-12-11 Sat 14:50
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -27,27 +27,12 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
-
 
 \section{OPGAVE 1}
-\label{sec:orgf48354d}
+\label{sec:orge3fbc54}
 
 \subsection{a}
-\label{sec:orgb649a2b}
-\begin{verbatim}
-Hej
-\end{verbatim}
-
-\begin{center}
-\includegraphics[width=.9\linewidth]{img.png}
-\end{center}
-
-Some text
-\(e = mc^2\)
-
-\subsection{a}
-\label{sec:org40031ec}
+\label{sec:org910bea3}
 Chancen for at få X kast der lander på krone i træk, er:
 \((\frac{1}{2})^X\)
 
@@ -56,7 +41,7 @@ Skrevet i R:
 pmf = \(throws) 0.5^throws
 \end{verbatim}
 \subsection{b}
-\label{sec:org9daf217}
+\label{sec:orgf2dfbaf}
 Profiten \(f(X)\) er givet ved \(f(a, X) = a2^X - a\)
 
 Skrevet i R:
@@ -64,7 +49,7 @@ Skrevet i R:
 profit = \(buyin, throws) buyin * 2^(throws) - buyin
 \end{verbatim}
 \subsection{c}
-\label{sec:org450d4c2}
+\label{sec:org54263c6}
 \begin{align}
 E(X) = \sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b \\
 |f(x)|p(x) = b2^{x+1}0.5^x = b \\
@@ -73,9 +58,9 @@ E(X) = \sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b \\
 
 Da \(E(X)\) divergerer mod positiv uendelig har spillet ikke noget forventet udfald.
 \section{2}
-\label{sec:org4596370}
+\label{sec:orga1b3501}
 \subsection{a}
-\label{sec:org97ade03}
+\label{sec:org9707988}
 Da hele pmf \(p\), bortset fra \(p(x=-1,y=3)\) er kendt kan \(z\) beregnes ved at isolere.
 
 \begin{center}
@@ -98,7 +83,7 @@ p <- matrix(c(0.1,0.1,z,0.3,0.05,0.05), 2, 3, TRUE)
 z <- 1 - (0.1 + 0.1 + 0.3 + 0.05 + 0.05)
 \end{verbatim}
 \subsection{b}
-\label{sec:org36a9c81}
+\label{sec:org7f51812}
 Beregn den forventede gevinst
 
 \begin{align}
@@ -116,7 +101,7 @@ y <- -sum(p[,1]) + sum(p[,2]) + 3*sum(p[,3])
 E <- x + y # Forventede gevinst
 \end{verbatim}
 \subsection{c}
-\label{sec:orge7be5fe}
+\label{sec:org2e1cd51}
 beregn kovariansen mellem X og Y. Er X og Y uafhængige?
 
 Skrevet i R (fortsat):
@@ -129,9 +114,9 @@ xy <- c(z, 0.3+0.1, 0.15, 0.05)
 Hvilket betyder at de er afhængige af hinanden, da cov /= 0 og at de 2 bevæger sig modsat af hinanden
 
 \section{3}
-\label{sec:org68ff1a6}
+\label{sec:orgcade4cc}
 \subsection{a}
-\label{sec:org2c4f44c}
+\label{sec:orgddb580a}
 Vi ved at hvis \(A\) har et udfald som er givet,
 har den altid en sandsynlighed \(1\) betinget at det er udfaldet.
 
@@ -175,17 +160,65 @@ sum & 0.01 & 0.99 & 1\\
 
 Summen af rækkerne er så hhv. \(P(T=1)\) og \(P(T=0)\).
 \subsection{b}
-\label{sec:orge5eaf04}
+\label{sec:org1986b85}
 Sandsynligheden for ikke at have allergien givet en negativ test er:
 \[P(A=0|T=0)=\frac{P(A=0,T=0)}{P(T=0)}=\frac{0.98307}{0.98309}= 0.9999797\]
 \subsection{c}
-\label{sec:orgf601823}
+\label{sec:org7e349ac}
 Sandsynligheden for at have allergien givet en positiv test er:
 \[P(A=1|T=1)=\frac{P(A=1,T=1)}{P(T=1)}=\frac{0.00998}{0.01}= 0.998\]
 
-
 \section{4}
-\label{sec:org06aa44c}
+\label{sec:org962979d}
 \subsection{a}
-\label{sec:org7ec5895}
+\label{sec:orgd035d0f}
+\begin{equation}
+p_1(x) =
+\begin{cases}
+\frac{1}{365} & \quad if \quad x \in \{1,\cdots,365\}\\
+0 & \quad if \quad x \in \mathbb{R} \setminus \{1,\cdots,365\}
+\end{cases}
+\end{equation}
+\subsection{b}
+\label{sec:org9002a13}
+Sandsynligheden for et givet udfald er stadig uniformt for enhver vektor \(V = (X_1,\cdots,X_n)\).
+Derfor er sandsyndligheden for et specifikt udfald for alle elementer i vektoren produktet af de individuelle elementer.
+\[
+p_2(V) = \prod_{i=1}^n p_1(x_i)
+\]
+\subsection{c}
+\label{sec:org89602e0}
+\begin{align}
+\forall x, \quad p(x) &\ge 0 \\
+\sum_x p(x) &= 1 \\
+\end{align}
+
+\(p_2(x)\) er et produkt af to muglige faktorer \(0\) og \(\frac{1}{365}\),
+derfor er \(Im(p_2) = [\frac{1}{365};0]\).
+\[0 \ge 0 \quad \frac{1}{365} \ge 0\]
+
+Udfaldsrummet er af størrelse \(u^d\) hvor \(d\) antal elementer i vektoren og \(u\) er antallet af udfald per element.
+Da udfaldrummet er uniformt må et udfald give at \(p(V) = \frac{1}{u^d}\).
+
+\begin{align}
+X_i \in \{1,\cdots,365\} \implies p_2(V) &= \prod_{i=1}^n \frac{1}{365} \\
+&= \frac{1}{365^n} \\
+&= \frac{1}{u^d}
+\end{align}
+\subsection{d}
+\label{sec:orgee39b1c}
+Sandsynligheden for nogen i en gruppe har fødseldag på samme dag er det omvendte (\(1-p\)) af at ingen i gruppen har fødseldag på samme dag.
+Denne betingede sandsyndlighed er \(1\) for \(n=0\) og \(1\frac{364}{365}\) for \(n=1\),
+fordi den første fødseldag fjerner en dag fra udfaldsrummet hvor fødseldagene ikke kolliderer.
+Generelt er sekvensen \(\frac{365}{365}\frac{364}{365}\cdots\frac{365-n}{365}\).
+Dette kan omskrives til \(\frac{1}{365^n}\frac{365!}{(365-n)!}\).
+Dvs. \(p(n) = 1- \frac{1}{365^n}\frac{365!}{(365-n)!}\).
+
+Skrevet i R (muligvis med forstærkede afrundingsfejl):
+\begin{verbatim}
+p = \(n) 1 - prod(c((365-n):365)/365)
+p(10) # 0.1411414
+p(20) # 0.4436883
+p(50) # 0.974432
+\end{verbatim}
 \end{document}
