@@ -1,10 +1,10 @@
-#+TITLE: Opg3
+#+TITLE: Hold 09 mach: Opg3
 #+PROPERTY: session *R*
 #+PROPERTY: results output
-#+AUTHOR: Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Emil Mark-Hansen
-#+OPTIONS: toc:nil
+#+AUTHOR: Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Mark-Hansen
+#+OPTIONS: toc:nil num:nil
 
-* OPGAVE 1
+* 1
 
 #+begin_comment
 \begin{verbatim}
