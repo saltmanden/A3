@@ -23,28 +23,18 @@ $e = mc^2$
 #+end_comment
 
 ** a
-Chancen for at få X kast der lander på krone i træk, er:
-$(\frac{1}{2})^X$
+Pmf'en er geometrisk fordelt, da vi tæller antal forsøg indtil succes [table 1. Essentials of PROBABILITY THEORY]. Dvs. X antager værdierne $Support\{ 1,2... \infty \}$, og kan derfor opskrive vores pmf: $$p(x)=\frac{1}{2^x}$$
 
-Skrevet i R:
-\begin{verbatim}
-pmf = \(throws) 0.5^throws
-\end{verbatim}
 ** b
-Profiten $f(X)$ er givet ved $f(a, X) = a2^X - a$
+Hvis det koster C at spille, findes f for gevinsten : $$f_x(x)=2^x-C$$
 
-Skrevet i R:
-\begin{verbatim}
-profit = \(buyin, throws) buyin * 2^(throws) - buyin
-\end{verbatim}
 ** c
-\begin{align}
-E(X) = \sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b \\
-|f(x)|p(x) = b2^{x+1}0.5^x = b \\
-\sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b = \infty
-\end{align}
-
-Da $E(X)$ divergerer mod positiv uendelig har spillet ikke noget forventet udfald.
+Bevis:
+$$\sum_{x=supp(x)}^\infty|f_x(x)|P(X=x) = \infty$$
+$$\sum_{x=supp(x)}^\infty |f_x(x)|P(X=x) \geq \sum_{x=supp(x)}^\infty f_x(x)P(X=x)$$
+$$\sum_{x=supp(x)}^\infty |2^x-C|\frac{1}{2^x} \geq \sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{2^x}$$
+$$\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{2^x}\Rightarrow \sum_{x=supp(x)}^\infty 1-\frac{C}{2^x} = \infty$$
+Da dette er opfyldt og $\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{\frac{1}{2}^x} = \infty$ og man kan ikke finde en middelværdi.
 * 2
 ** a
 Da hele pmf $p$, bortset fra $p(x=-1,y=3)$ er kendt kan $z$ beregnes ved at isolere.
