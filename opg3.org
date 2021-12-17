@@ -120,28 +120,46 @@ Sandsynligheden for at have allergien givet en positiv test er:
 * 4
 ** a
 \begin{equation}
-p_1(x) =
+p_i(x) =
 \begin{cases}
 \frac{1}{365} & \quad if \quad x \in \{1,\cdots,365\}\\
-0 & \quad if \quad x \in \mathbb{R} \setminus \{1,\cdots,365\}
+0 & \quad if \quad x \notin \{1,\cdots,365\}
 \end{cases}
 \end{equation}
 ** b
+#+begin_comment
 Sandsynligheden for et givet udfald er stadig uniformt for enhver vektor $V = (X_1,\cdots,X_n)$.
 Derfor er sandsyndligheden for et specifikt udfald for alle elementer i vektoren produktet af de individuelle elementer.
 \[
 p_2(V) = \prod_{i=1}^n p_1(x_i)
 \]
+#+end_comment
+~ER DET GODT NOK FORKLARET?~ \\
+Da $x_1,x_2,\cdots,x_n$ er disjunkte kan $P(x_1,x_2,\cdots,x_n)$ udtrykkes som produktet af sandsyndligheden for hvert udfald. *mangler citation*.
+\begin{align}
+P(x_1,x_2,\cdots,x_n) &= P(X_i=x_1) \cdot P(X_i=x_2) \cdots P(X_i=x_n)\\
+&= p_i(X_i=x_1) \cdot p_i(X_i=x_2) \cdots p_i(X_i=x_n)\\
+p_i(x) &=
+\begin{cases}
+\frac{1}{365} & \quad if \quad x \in \{1,\cdots,365\}\\
+0 & \quad ellers
+\end{cases} \\
+P(x_1,x_2,\cdots,x_n) &=
+\begin{cases}
+\frac{1}{365^n} & \quad hvis \quad (x_1,x_2,\cdots,x_n) \in \{1,\cdots,365\}\\
+0 & \quad ellers
+\end{cases}
+\end{align}
 ** c
 \begin{align}
 \forall x, \quad p(x) &\ge 0 \\
 \sum_x p(x) &= 1 \\
 \end{align}
 
-$p_2(x)$ er et produkt af to muglige faktorer $0$ og $\frac{1}{365}$,
-derfor er $Im(p_2) = [\frac{1}{365};0]$.
+$p_2(x)$ er et produkt af to muglige faktorer $0$ og $\frac{1}{365}$.
 \[0 \ge 0 \quad \frac{1}{365} \ge 0\]
 
+#+begin_comment
 Udfaldsrummet er af størrelse $u^d$ hvor $d$ antal elementer i vektoren og $u$ er antallet af udfald per element.
 Da udfaldrummet er uniformt må et udfald give at $p(V) = \frac{1}{u^d}$.
 
@@ -150,13 +168,51 @@ X_i \in \{1,\cdots,365\} \implies p_2(V) &= \prod_{i=1}^n \frac{1}{365} \\
 &= \frac{1}{365^n} \\
 &= \frac{1}{u^d}
 \end{align}
+#+end_comment
+
+$x_1$ kan antage 365 udfald, $x_2$ 365, og samme for resten op til $x_n$.
+Derfor må pmf; $P(x_1,x_2,\cdots,x_n)$ have
+$365 \cdot \stackrel{n}{\cdots} \cdot 365 = 365^n$
+udfald.
+\[
+\sum_{(x_1,x_2,\cdots,x_n) \in \{1,\cdots,365\}} p(x_1,x_2,\cdots,x_n) =
+\sum_x \frac{1}{365^n} = 365^n \cdot \frac{1}{365^n} = 1 \\
+\]
 ** d
-Sandsynligheden for nogen i en gruppe har fødseldag på samme dag er det omvendte ($1-p$) af at ingen i gruppen har fødseldag på samme dag.
+Sandsynligheden for nogen i en gruppe, dvs. 2 eller mere, har fødseldag på samme dag er det omvendte af at ingen i gruppen har fødseldag på samme dag, dvs. 1 eller mindre.
+\begin{align}
+B&=\text{"$\ge$ 2 har fødselsdag på samme dag"}\\
+B^C&=\text{"$\le$ 1 har fødselsdag på samme dag"} = \text{"Alle har en unik fødselsdag"}
+\end{align}
+
+Ethvert udfald vil ligge i enten $B$ eller $B^C$, ~ER DET TRIVIELT AT B, BC ER DISJUNKTE?~
+\[P(x_1,x_2,\cdots,x_n \in B \cup B^C) = 1\]
+\[P(x_1,x_2,\cdots,x_n \in B) = 1 - P(x_1,x_2,\cdots,x_n \in B^C)\]
+
+Mængden af dage hvor man kan have en unik fødselsdag er 365 hvis der blot er én person.
+Hvis der er to personer er der 365 dage for den første og 364 for den anden,
+da den anden person ikke kan have fødselsdag på samme dag som den første.
+Det giver $365 \cdot 364$ kombinationer.
+Det gælder generelt at antalet af kombinationer for $n$ personer er:
+\[365 \cdot (365 - 1) \cdots (365-n+1)\]
+Eller omskrevet:
+\[\frac{365!}{(365-n)!}\]
+Vi kender sandsyndligheden for et specifikt udfald for $n$ personer,
+ved $P(x_1,x_2,\cdots,x_n).
+Antages det at alle har rigtige fødselsdage,
+kan sandsynligheden for at $n$ personer alle har unikke fødselsdage ift. hindanden.
+\[P(x_1,x_2,\cdots,x_n \in B^C) = \frac{365!}{(365-n)!\cdot 365^n}\]
+Dvs.
+\[P(x_1,x_2,\cdots,x_n \in B) = 1 - P(x_1,x_2,\cdots,x_n \in B^C)\]
+\[P(x_1,x_2,\cdots,x_n \in B) = 1 - \frac{365!}{(365-n)!\cdot 365^n}\]
+
+#+begin_comment
 Denne betingede sandsyndlighed er $1$ for $n=0$ og $1\frac{364}{365}$ for $n=1$,
 fordi den første fødseldag fjerner en dag fra udfaldsrummet hvor fødseldagene ikke kolliderer.
 Generelt er sekvensen $\frac{365}{365}\frac{364}{365}\cdots\frac{365-n}{365}$.
 Dette kan omskrives til $\frac{1}{365^n}\frac{365!}{(365-n)!}$.
 Dvs. $p(n) = 1- \frac{1}{365^n}\frac{365!}{(365-n)!}$.
+#+end_comment
 
 Skrevet i R (muligvis med forstærkede afrundingsfejl):
 #+begin_src R
