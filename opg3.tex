@@ -1,4 +1,4 @@
-% Created 2021-12-11 Sat 14:50
+% Created 2021-12-17 Fri 15:34
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -14,12 +14,12 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\author{Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Emil Mark-Hansen}
+\author{Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Mark-Hansen}
 \date{\today}
-\title{Opg3}
+\title{Hold 09 mach: Opg3}
 \hypersetup{
- pdfauthor={Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Emil Mark-Hansen},
- pdftitle={Opg3},
+ pdfauthor={Ali Kadum Hassan, Frederik Henriques Altmann, Gustav Mark-Hansen},
+ pdftitle={Hold 09 mach: Opg3},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.5)}, 
@@ -28,11 +28,11 @@
 
 \maketitle
 
-\section{OPGAVE 1}
-\label{sec:orge3fbc54}
+\section*{1}
+\label{sec:org05bc15b}
 
-\subsection{a}
-\label{sec:org910bea3}
+\subsection*{a}
+\label{sec:orgd8c1f92}
 Chancen for at få X kast der lander på krone i træk, er:
 \((\frac{1}{2})^X\)
 
@@ -40,16 +40,16 @@ Skrevet i R:
 \begin{verbatim}
 pmf = \(throws) 0.5^throws
 \end{verbatim}
-\subsection{b}
-\label{sec:orgf2dfbaf}
+\subsection*{b}
+\label{sec:orgc62789a}
 Profiten \(f(X)\) er givet ved \(f(a, X) = a2^X - a\)
 
 Skrevet i R:
 \begin{verbatim}
 profit = \(buyin, throws) buyin * 2^(throws) - buyin
 \end{verbatim}
-\subsection{c}
-\label{sec:org54263c6}
+\subsection*{c}
+\label{sec:org6689ae5}
 \begin{align}
 E(X) = \sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b \\
 |f(x)|p(x) = b2^{x+1}0.5^x = b \\
@@ -57,10 +57,10 @@ E(X) = \sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b \\
 \end{align}
 
 Da \(E(X)\) divergerer mod positiv uendelig har spillet ikke noget forventet udfald.
-\section{2}
-\label{sec:orga1b3501}
-\subsection{a}
-\label{sec:org9707988}
+\section*{2}
+\label{sec:org2284d3a}
+\subsection*{a}
+\label{sec:orgf15ed8c}
 Da hele pmf \(p\), bortset fra \(p(x=-1,y=3)\) er kendt kan \(z\) beregnes ved at isolere.
 
 \begin{center}
@@ -82,8 +82,8 @@ Skrevet i R:
 p <- matrix(c(0.1,0.1,z,0.3,0.05,0.05), 2, 3, TRUE)
 z <- 1 - (0.1 + 0.1 + 0.3 + 0.05 + 0.05)
 \end{verbatim}
-\subsection{b}
-\label{sec:org7f51812}
+\subsection*{b}
+\label{sec:orge281eb0}
 Beregn den forventede gevinst
 
 \begin{align}
@@ -100,8 +100,8 @@ x <- -sum(p[1,]) + sum(p[2,])
 y <- -sum(p[,1]) + sum(p[,2]) + 3*sum(p[,3])
 E <- x + y # Forventede gevinst
 \end{verbatim}
-\subsection{c}
-\label{sec:org2e1cd51}
+\subsection*{c}
+\label{sec:org30d2f7e}
 beregn kovariansen mellem X og Y. Er X og Y uafhængige?
 
 Skrevet i R (fortsat):
@@ -113,10 +113,10 @@ xy <- c(z, 0.3+0.1, 0.15, 0.05)
 
 Hvilket betyder at de er afhængige af hinanden, da cov /= 0 og at de 2 bevæger sig modsat af hinanden
 
-\section{3}
-\label{sec:orgcade4cc}
-\subsection{a}
-\label{sec:orgddb580a}
+\section*{3}
+\label{sec:org1a52b58}
+\subsection*{a}
+\label{sec:org610609b}
 Vi ved at hvis \(A\) har et udfald som er givet,
 har den altid en sandsynlighed \(1\) betinget at det er udfaldet.
 
@@ -159,60 +159,90 @@ sum & 0.01 & 0.99 & 1\\
 \end{center}
 
 Summen af rækkerne er så hhv. \(P(T=1)\) og \(P(T=0)\).
-\subsection{b}
-\label{sec:org1986b85}
+\subsection*{b}
+\label{sec:org874a91e}
 Sandsynligheden for ikke at have allergien givet en negativ test er:
 \[P(A=0|T=0)=\frac{P(A=0,T=0)}{P(T=0)}=\frac{0.98307}{0.98309}= 0.9999797\]
-\subsection{c}
-\label{sec:org7e349ac}
+\subsection*{c}
+\label{sec:org5db15a6}
 Sandsynligheden for at have allergien givet en positiv test er:
 \[P(A=1|T=1)=\frac{P(A=1,T=1)}{P(T=1)}=\frac{0.00998}{0.01}= 0.998\]
 
-\section{4}
-\label{sec:org962979d}
-\subsection{a}
-\label{sec:orgd035d0f}
+\section*{4}
+\label{sec:orgacc3a3f}
+\subsection*{a}
+\label{sec:org673380d}
 \begin{equation}
-p_1(x) =
+p_i(x) =
 \begin{cases}
 \frac{1}{365} & \quad if \quad x \in \{1,\cdots,365\}\\
-0 & \quad if \quad x \in \mathbb{R} \setminus \{1,\cdots,365\}
+0 & \quad if \quad x \notin \{1,\cdots,365\}
 \end{cases}
 \end{equation}
-\subsection{b}
-\label{sec:org9002a13}
-Sandsynligheden for et givet udfald er stadig uniformt for enhver vektor \(V = (X_1,\cdots,X_n)\).
-Derfor er sandsyndligheden for et specifikt udfald for alle elementer i vektoren produktet af de individuelle elementer.
-\[
-p_2(V) = \prod_{i=1}^n p_1(x_i)
-\]
-\subsection{c}
-\label{sec:org89602e0}
+\subsection*{b}
+\label{sec:orga0002ee}
+\texttt{ER DET GODT NOK FORKLARET?} \\
+Da \(x_1,x_2,\cdots,x_n\) er disjunkte kan \(P(x_1,x_2,\cdots,x_n)\) udtrykkes som produktet af sandsyndligheden for hvert udfald. \textbf{mangler citation}.
+\begin{align}
+P(x_1,x_2,\cdots,x_n) &= P(X_i=x_1) \cdot P(X_i=x_2) \cdots P(X_i=x_n)\\
+&= p_i(X_i=x_1) \cdot p_i(X_i=x_2) \cdots p_i(X_i=x_n)\\
+p_i(x) &=
+\begin{cases}
+\frac{1}{365} & \quad if \quad x \in \{1,\cdots,365\}\\
+0 & \quad ellers
+\end{cases} \\
+P(x_1,x_2,\cdots,x_n) &=
+\begin{cases}
+\frac{1}{365^n} & \quad hvis \quad (x_1,x_2,\cdots,x_n) \in \{1,\cdots,365\}\\
+0 & \quad ellers
+\end{cases}
+\end{align}
+\subsection*{c}
+\label{sec:orgb4abdde}
 \begin{align}
 \forall x, \quad p(x) &\ge 0 \\
 \sum_x p(x) &= 1 \\
 \end{align}
 
-\(p_2(x)\) er et produkt af to muglige faktorer \(0\) og \(\frac{1}{365}\),
-derfor er \(Im(p_2) = [\frac{1}{365};0]\).
+\(p_2(x)\) er et produkt af to muglige faktorer \(0\) og \(\frac{1}{365}\).
 \[0 \ge 0 \quad \frac{1}{365} \ge 0\]
 
-Udfaldsrummet er af størrelse \(u^d\) hvor \(d\) antal elementer i vektoren og \(u\) er antallet af udfald per element.
-Da udfaldrummet er uniformt må et udfald give at \(p(V) = \frac{1}{u^d}\).
-
+\(x_1\) kan antage 365 udfald, \(x_2\) 365, og samme for resten op til \(x_n\).
+Derfor må pmf; \(P(x_1,x_2,\cdots,x_n)\) have
+\(365 \cdot \stackrel{n}{\cdots} \cdot 365 = 365^n\)
+udfald.
+\[
+\sum_{(x_1,x_2,\cdots,x_n) \in \{1,\cdots,365\}} p(x_1,x_2,\cdots,x_n) =
+\sum_x \frac{1}{365^n} = 365^n \cdot \frac{1}{365^n} = 1 \\
+\]
+\subsection*{d}
+\label{sec:org14a6f6d}
+Sandsynligheden for nogen i en gruppe, dvs. 2 eller mere, har fødseldag på samme dag er det omvendte af at ingen i gruppen har fødseldag på samme dag, dvs. 1 eller mindre.
 \begin{align}
-X_i \in \{1,\cdots,365\} \implies p_2(V) &= \prod_{i=1}^n \frac{1}{365} \\
-&= \frac{1}{365^n} \\
-&= \frac{1}{u^d}
+B&=\text{"$\ge$ 2 har fødselsdag på samme dag"}\\
+B^C&=\text{"$\le$ 1 har fødselsdag på samme dag"} = \text{"Alle har en unik fødselsdag"}
 \end{align}
-\subsection{d}
-\label{sec:orgee39b1c}
-Sandsynligheden for nogen i en gruppe har fødseldag på samme dag er det omvendte (\(1-p\)) af at ingen i gruppen har fødseldag på samme dag.
-Denne betingede sandsyndlighed er \(1\) for \(n=0\) og \(1\frac{364}{365}\) for \(n=1\),
-fordi den første fødseldag fjerner en dag fra udfaldsrummet hvor fødseldagene ikke kolliderer.
-Generelt er sekvensen \(\frac{365}{365}\frac{364}{365}\cdots\frac{365-n}{365}\).
-Dette kan omskrives til \(\frac{1}{365^n}\frac{365!}{(365-n)!}\).
-Dvs. \(p(n) = 1- \frac{1}{365^n}\frac{365!}{(365-n)!}\).
+
+Ethvert udfald vil ligge i enten \(B\) eller \(B^C\), \texttt{ER DET TRIVIELT AT B, BC ER DISJUNKTE?}
+\[P(x_1,x_2,\cdots,x_n \in B \cup B^C) = 1\]
+\[P(x_1,x_2,\cdots,x_n \in B) = 1 - P(x_1,x_2,\cdots,x_n \in B^C)\]
+
+Mængden af dage hvor man kan have en unik fødselsdag er 365 hvis der blot er én person.
+Hvis der er to personer er der 365 dage for den første og 364 for den anden,
+da den anden person ikke kan have fødselsdag på samme dag som den første.
+Det giver \(365 \cdot 364\) kombinationer.
+Det gælder generelt at antalet af kombinationer for \(n\) personer er:
+\[365 \cdot (365 - 1) \cdots (365-n+1)\]
+Eller omskrevet:
+\[\frac{365!}{(365-n)!}\]
+Vi kender sandsyndligheden for et specifikt udfald for \(n\) personer,
+ved \$P(x\textsubscript{1,x}\textsubscript{2,\(\cdots{}\),x}\textsubscript{n}).
+Antages det at alle har rigtige fødselsdage,
+kan sandsynligheden for at \(n\) personer alle har unikke fødselsdage ift. hindanden.
+\[P(x_1,x_2,\cdots,x_n \in B^C) = \frac{365!}{(365-n)!\cdot 365^n}\]
+Dvs.
+\[P(x_1,x_2,\cdots,x_n \in B) = 1 - P(x_1,x_2,\cdots,x_n \in B^C)\]
+\[P(x_1,x_2,\cdots,x_n \in B) = 1 - \frac{365!}{(365-n)!\cdot 365^n}\]
 
 Skrevet i R (muligvis med forstærkede afrundingsfejl):
 \begin{verbatim}
