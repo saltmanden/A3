@@ -1,4 +1,4 @@
-% Created 2021-12-17 Fri 15:34
+% Created 2021-12-17 Fri 15:42
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,40 +29,28 @@
 \maketitle
 
 \section*{1}
-\label{sec:org05bc15b}
+\label{sec:org0aeef0e}
 
 \subsection*{a}
-\label{sec:orgd8c1f92}
-Chancen for at få X kast der lander på krone i træk, er:
-\((\frac{1}{2})^X\)
+\label{sec:orgda139c4}
+Pmf'en er geometrisk fordelt, da vi tæller antal forsøg indtil succes [table 1. EPT]. Dvs. X antager værdierne \(Support\{ 1,2... \infty \}\), og kan derfor opskrive vores pmf: $$p(x)=\frac{1}{2^x}$$
 
-Skrevet i R:
-\begin{verbatim}
-pmf = \(throws) 0.5^throws
-\end{verbatim}
 \subsection*{b}
-\label{sec:orgc62789a}
-Profiten \(f(X)\) er givet ved \(f(a, X) = a2^X - a\)
+\label{sec:orgc3b63e3}
+Hvis det koster C at spille, findes f for gevinsten : $$f_x(x)=2^x-C$$
 
-Skrevet i R:
-\begin{verbatim}
-profit = \(buyin, throws) buyin * 2^(throws) - buyin
-\end{verbatim}
 \subsection*{c}
-\label{sec:org6689ae5}
-\begin{align}
-E(X) = \sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b \\
-|f(x)|p(x) = b2^{x+1}0.5^x = b \\
-\sum_{n=1}^\infty |f(b,n)|p(n) = \sum_{n=1}^\infty b = \infty
-\end{align}
-
-Da \(E(X)\) divergerer mod positiv uendelig har spillet ikke noget forventet udfald.
+\label{sec:org1268d46}
+Bevis [EPT Def: 9]:
+$$\sum_{x=supp(x)}^\infty|f_x(x)|P(X=x) = \infty$$
+$$\sum_{x=supp(x)}^\infty |f_x(x)|P(X=x) \geq \sum_{x=supp(x)}^\infty f_x(x)P(X=x)$$
+$$\sum_{x=supp(x)}^\infty |2^x-C|\frac{1}{2^x} \geq \sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{2^x}$$
+$$\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{2^x}\Rightarrow \sum_{x=supp(x)}^\infty 1-\frac{C}{2^x} = \infty$$
+Da dette er opfyldt og \(\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{\frac{1}{2}^x} = \infty\) og man kan ikke finde en middelværdi.
 \section*{2}
-\label{sec:org2284d3a}
+\label{sec:orgdd40a13}
 \subsection*{a}
-\label{sec:orgf15ed8c}
-Da hele pmf \(p\), bortset fra \(p(x=-1,y=3)\) er kendt kan \(z\) beregnes ved at isolere.
-
+\label{sec:orge59f13e}
 \begin{center}
 \begin{tabular}{lrrl}
 p(x, y) & y = −1 & y = 1 & y = 3\\
@@ -71,21 +59,16 @@ x = 1 & 0.3 & 0.05 & 0.05\\
 \end{tabular}
 \end{center}
 
+Da \(P(X=x,Y=y)=1\) [EPT def. 1], kan vi udregne z ved:
+
 \begin{align}
-\int p(x,y) &= 1 \\
 1 &= 0.1 + 0.1 + 0.3 + 0.05 + 0.05 + z = 0.6 + z \\
 z &= 1 - 0.6 = 0.4
 \end{align}
-
-Skrevet i R:
-\begin{verbatim}
-p <- matrix(c(0.1,0.1,z,0.3,0.05,0.05), 2, 3, TRUE)
-z <- 1 - (0.1 + 0.1 + 0.3 + 0.05 + 0.05)
-\end{verbatim}
 \subsection*{b}
-\label{sec:orge281eb0}
+\label{sec:orgc5b637d}
 Beregn den forventede gevinst
-
+[EPT Rem: 18]
 \begin{align}
 E[X+Y] &= E[X] + E[Y] \\
 E[X] &= -1*0.6 + 1*0.4 = -0.2 \\
@@ -93,30 +76,22 @@ E[Y] &= -1*0.4 + 1*0.15 + 3*0.45 = 1.1 \\
 E[X+Y] &= 1.1 - 0.2 = 0.9
 \end{align}
 
-Skrevet i R (fortsat):
-
-\begin{verbatim}
-x <- -sum(p[1,]) + sum(p[2,])
-y <- -sum(p[,1]) + sum(p[,2]) + 3*sum(p[,3])
-E <- x + y # Forventede gevinst
-\end{verbatim}
 \subsection*{c}
-\label{sec:org30d2f7e}
+\label{sec:orgd822905}
 beregn kovariansen mellem X og Y. Er X og Y uafhængige?
+$\backslash$\[EPT Def: 19]\\
+$$COV(X,Y) := \mathbb{E}(XY)-\mathbb{E}(x)\mathbb{E}(y)$$
+$$P(XY=-3)=0.4, P(XY=-1)=0.4, P(XY=1)=0.15, P(XY=3)=0.05$$
+$$E(XY)=(-3)*0.4+(-1)*0.4+1*0.15+3*0.05 \Rightarrow -1.03$$
+\(E(x)\) og \(E(y)\) kender vi fra sidste opgave: \(E(x)=-0.2, E(y)=1.1\)
+$$COV(X,Y)=(-1.03)-(-0.2)*1.1 \Rightarrow -1.08$$
 
-Skrevet i R (fortsat):
-\begin{verbatim}
-xy <- c(z, 0.3+0.1, 0.15, 0.05)
--3*xy[1]+ (-1)*xy[2] +xy[3]+3*xy[4] #-> E(xy) = -1.3
--1.3-(mean(x)*mean(y)) #->              Cov(x,y)= -1.08
-\end{verbatim}
-
-Hvilket betyder at de er afhængige af hinanden, da cov /= 0 og at de 2 bevæger sig modsat af hinanden
+Hvilket betyder at de er afhængige af hinanden, da \(cov \neq 0\) [Rem 22 EPT]
 
 \section*{3}
-\label{sec:org1a52b58}
+\label{sec:orga80acd4}
 \subsection*{a}
-\label{sec:org610609b}
+\label{sec:org7d16437}
 Vi ved at hvis \(A\) har et udfald som er givet,
 har den altid en sandsynlighed \(1\) betinget at det er udfaldet.
 
@@ -160,18 +135,18 @@ sum & 0.01 & 0.99 & 1\\
 
 Summen af rækkerne er så hhv. \(P(T=1)\) og \(P(T=0)\).
 \subsection*{b}
-\label{sec:org874a91e}
+\label{sec:orgb11c8bb}
 Sandsynligheden for ikke at have allergien givet en negativ test er:
 \[P(A=0|T=0)=\frac{P(A=0,T=0)}{P(T=0)}=\frac{0.98307}{0.98309}= 0.9999797\]
 \subsection*{c}
-\label{sec:org5db15a6}
+\label{sec:org5fc2c5d}
 Sandsynligheden for at have allergien givet en positiv test er:
 \[P(A=1|T=1)=\frac{P(A=1,T=1)}{P(T=1)}=\frac{0.00998}{0.01}= 0.998\]
 
 \section*{4}
-\label{sec:orgacc3a3f}
+\label{sec:orgdbc2b4a}
 \subsection*{a}
-\label{sec:org673380d}
+\label{sec:org78600d6}
 \begin{equation}
 p_i(x) =
 \begin{cases}
@@ -180,7 +155,7 @@ p_i(x) =
 \end{cases}
 \end{equation}
 \subsection*{b}
-\label{sec:orga0002ee}
+\label{sec:orgbe4133e}
 \texttt{ER DET GODT NOK FORKLARET?} \\
 Da \(x_1,x_2,\cdots,x_n\) er disjunkte kan \(P(x_1,x_2,\cdots,x_n)\) udtrykkes som produktet af sandsyndligheden for hvert udfald. \textbf{mangler citation}.
 \begin{align}
@@ -198,7 +173,7 @@ P(x_1,x_2,\cdots,x_n) &=
 \end{cases}
 \end{align}
 \subsection*{c}
-\label{sec:orgb4abdde}
+\label{sec:org9f98f52}
 \begin{align}
 \forall x, \quad p(x) &\ge 0 \\
 \sum_x p(x) &= 1 \\
@@ -216,7 +191,7 @@ udfald.
 \sum_x \frac{1}{365^n} = 365^n \cdot \frac{1}{365^n} = 1 \\
 \]
 \subsection*{d}
-\label{sec:org14a6f6d}
+\label{sec:org308de40}
 Sandsynligheden for nogen i en gruppe, dvs. 2 eller mere, har fødseldag på samme dag er det omvendte af at ingen i gruppen har fødseldag på samme dag, dvs. 1 eller mindre.
 \begin{align}
 B&=\text{"$\ge$ 2 har fødselsdag på samme dag"}\\
