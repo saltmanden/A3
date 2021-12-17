@@ -29,7 +29,7 @@ Pmf'en er geometrisk fordelt, da vi tæller antal forsøg indtil succes [table 1
 Hvis det koster C at spille, findes f for gevinsten : $$f_x(x)=2^x-C$$
 
 ** c
-Bevis:
+Bevis [EPT Def: 9]:
 $$\sum_{x=supp(x)}^\infty|f_x(x)|P(X=x) = \infty$$
 $$\sum_{x=supp(x)}^\infty |f_x(x)|P(X=x) \geq \sum_{x=supp(x)}^\infty f_x(x)P(X=x)$$
 $$\sum_{x=supp(x)}^\infty |2^x-C|\frac{1}{2^x} \geq \sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{2^x}$$
@@ -49,7 +49,7 @@ z &= 1 - 0.6 = 0.4
 \end{align}
 ** b
 Beregn den forventede gevinst
-[EPT REFERENCE NEEDED]
+[EPT Rem: 18]
 \begin{align}
 E[X+Y] &= E[X] + E[Y] \\
 E[X] &= -1*0.6 + 1*0.4 = -0.2 \\
