@@ -23,7 +23,7 @@ $e = mc^2$
 #+end_comment
 
 ** a
-Pmf'en er geometrisk fordelt, da vi tæller antal forsøg indtil succes [table 1. Essentials of PROBABILITY THEORY]. Dvs. X antager værdierne $Support\{ 1,2... \infty \}$, og kan derfor opskrive vores pmf: $$p(x)=\frac{1}{2^x}$$
+Pmf'en er geometrisk fordelt, da vi tæller antal forsøg indtil succes [table 1. EPT]. Dvs. X antager værdierne $Support\{ 1,2... \infty \}$, og kan derfor opskrive vores pmf: $$p(x)=\frac{1}{2^x}$$
 
 ** b
 Hvis det koster C at spille, findes f for gevinsten : $$f_x(x)=2^x-C$$
@@ -37,23 +37,16 @@ $$\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{2^x}\Rightarrow \sum_{x=supp(x)}^\inft
 Da dette er opfyldt og $\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{\frac{1}{2}^x} = \infty$ og man kan ikke finde en middelværdi.
 * 2
 ** a
-Da hele pmf $p$, bortset fra $p(x=-1,y=3)$ er kendt kan $z$ beregnes ved at isolere.
-
 | p(x, y) | y = −1 | y = 1 | y = 3 |
 | x = −1  |    0.1 |   0.1 | z     |
 | x = 1   |    0.3 |  0.05 | 0.05  |
 
+Da $P(X=x,Y=y)=1$ [EPT def. 1], kan vi udregne z ved:
+
 \begin{align}
-\int p(x,y) &= 1 \\
 1 &= 0.1 + 0.1 + 0.3 + 0.05 + 0.05 + z = 0.6 + z \\
 z &= 1 - 0.6 = 0.4
 \end{align}
-
-Skrevet i R:
-\begin{verbatim}
-p <- matrix(c(0.1,0.1,z,0.3,0.05,0.05), 2, 3, TRUE)
-z <- 1 - (0.1 + 0.1 + 0.3 + 0.05 + 0.05)
-\end{verbatim}
 ** b
 Beregn den forventede gevinst
 
@@ -64,24 +57,16 @@ E[Y] &= -1*0.4 + 1*0.15 + 3*0.45 = 1.1 \\
 E[X+Y] &= 1.1 - 0.2 = 0.9
 \end{align}
 
-Skrevet i R (fortsat):
-
-\begin{verbatim}
-x <- -sum(p[1,]) + sum(p[2,])
-y <- -sum(p[,1]) + sum(p[,2]) + 3*sum(p[,3])
-E <- x + y # Forventede gevinst
-\end{verbatim}
 ** c
 beregn kovariansen mellem X og Y. Er X og Y uafhængige?
+\\[EPT Def: 19]\\
+$$COV(X,Y) := \mathbb{E}(XY)-\mathbb{E}(x)\mathbb{E}(y)$$
+$$P(XY=-3)=0.4, P(XY=-1)=0.4, P(XY=1)=0.15, P(XY=3)=0.05$$
+$$E(XY)=(-3)*0.4+(-1)*0.4+1*0.15+3*0.05 \Rightarrow -1.03$$
+$E(x)$ og $E(y)$ kender vi fra sidste opgave: $E(x)=-0.2, E(y)=1.1$
+$$COV(X,Y)=(-1.03)-(-0.2)*1.1 \Rightarrow -1.08$$
 
-Skrevet i R (fortsat):
-\begin{verbatim}
-xy <- c(z, 0.3+0.1, 0.15, 0.05)
--3*xy[1]+ (-1)*xy[2] +xy[3]+3*xy[4] #-> E(xy) = -1.3
--1.3-(mean(x)*mean(y)) #->              Cov(x,y)= -1.08
-\end{verbatim}
-
-Hvilket betyder at de er afhængige af hinanden, da cov /= 0 og at de 2 bevæger sig modsat af hinanden
+Hvilket betyder at de er afhængige af hinanden, da $cov \neq 0$ [Rem 22 EPT]
 
 * 3
 ** a
