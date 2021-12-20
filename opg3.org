@@ -74,25 +74,49 @@ Vi ved at hvis $A$ har et udfald som er givet,
 har den altid en sandsynlighed $1$ betinget at det er udfaldet.
 
 | CPT            |   A=1 |   A=0 |
+|----------------+-------+-------|
 | P(T=1 givet A) | 0.998 |     a |
 | P(T=0 givet A) |     b | 0.993 |
+|----------------+-------+-------|
 | sum            |     1 |     1 |
 
 Derfor må $a = 1-0.993$ og $b=1-0.998$.
 
 | CPT            |   A=1 |   A=0 |
+|----------------+-------+-------|
 | P(T=1 givet A) | 0.998 | 0.007 |
 | P(T=0 givet A) | 0.002 | 0.993 |
+|----------------+-------+-------|
 | sum            |     1 |     1 |
 
 Sandsynligheden for at have en peanut allergi er $P(A = 1) = 0.01$, 1%,
 samt $P(A = 0) = 0.99$, 99% for ikke at have allergien.
 
-Da
-\[P(A|B) = \frac{P(A \union B)}{P(B)}\]
-\[P(A \union B) = P(A|B)\cdot P(B)\]
+Jf. Bayes teorem:
+\[P(A|B) = \frac{P(A \cap B)}{P(B)}\]
+\[P(A \cap B) = P(A|B)\cdot P(B)\]
 
 kan en *pmf* beregnes.
+
+\begin{align}
+P(A) = 1 \\
+P(A=1) = 0.01 \quad \text{aflæst} \\
+P(A=0) = P(A) - P(A=1)
+\end{align}
+$A=0$ og $A=1$ er disjunkte
+\begin{align}
+ P(T=1,A=1) &= P(T=1\vert A=1)\cdot P(A=1) \\
+ P(T=0,A=1) &= P(T=0\vert A=1)\cdot P(A=1) \\
+ P(T=1,A=0) &= P(T=1\vert A=0)\cdot P(A=0) \\
+ P(T=0,A=0) &= P(T=0\vert A=0)\cdot P(A=0) \\
+\end{align}
+værdier for $P(T|A)$ aflæses fra CPT tabel
+\begin{align}
+ P(T=1,A=1) &= 0.998\cdot 0.01 = 0.00998\\
+ P(T=0,A=1) &= 0.002\cdot 0.01 = 0.00002\\
+ P(T=1,A=0) &= 0.007\cdot 0.99 = 0.00693\\
+ P(T=0,A=0) &= 0.993\cdot 0.99 = 0.98309
+\end{align}
 
 #+begin_comment
 #+begin_src R
@@ -105,11 +129,19 @@ sum(PMF)
 #+end_comment
 
 | PMF |     A=1 |     A=0 |     sum |
+|-----+---------+---------+---------|
 | T=1 | 0.00998 | 0.00693 | 0.01691 |
 | T=0 | 0.00002 | 0.98307 | 0.98309 |
+|-----+---------+---------+---------|
 | sum |    0.01 |    0.99 |       1 |
 
 Summen af rækkerne er så hhv. $P(T=1)$ og $P(T=0)$.
+
+\begin{align}
+P(T=1) &= 0.01691 \\
+P(T=0) &= 0.98309
+\end{align}
+
 ** b
 Sandsynligheden for ikke at have allergien givet en negativ test er:
 \[P(A=0|T=0)=\frac{P(A=0,T=0)}{P(T=0)}=\frac{0.98307}{0.98309}= 0.9999797\]
