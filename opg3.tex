@@ -1,4 +1,4 @@
-% Created 2021-12-20 Mon 17:46
+% Created 2021-12-22 Wed 21:20
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,18 +29,18 @@
 \maketitle
 
 \section*{1}
-\label{sec:orgf7ba5fe}
+\label{sec:org23598a8}
 
 \subsection*{a}
-\label{sec:org9cf4761}
+\label{sec:org7cdb498}
 Pmf'en er geometrisk fordelt, da vi tæller antal forsøg indtil succes [table 1. EPT]. Dvs. X antager værdierne \(Support\{ 1,2... \infty \}\), og kan derfor opskrive vores pmf: $$p(x)=\frac{1}{2^x}$$
 
 \subsection*{b}
-\label{sec:org2eb4c2a}
+\label{sec:org3dc109c}
 Hvis det koster C at spille, findes f for gevinsten : $$f_x(x)=2^x-C$$
 
 \subsection*{c}
-\label{sec:orgd1b89d0}
+\label{sec:orgae198c5}
 Bevis [EPT Def: 9]:
 $$\sum_{x=supp(x)}^\infty|f_x(x)|P(X=x) = \infty$$
 $$\sum_{x=supp(x)}^\infty |f_x(x)|P(X=x) \geq \sum_{x=supp(x)}^\infty f_x(x)P(X=x)$$
@@ -48,9 +48,9 @@ $$\sum_{x=supp(x)}^\infty |2^x-C|\frac{1}{2^x} \geq \sum_{x=supp(x)}^\infty (2^x
 $$\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{2^x}\Rightarrow \sum_{x=supp(x)}^\infty 1-\frac{C}{2^x} = \infty$$
 Da dette er opfyldt og \(\sum_{x=supp(x)}^\infty (2^x-C)\frac{1}{\frac{1}{2}^x} = \infty\) og man kan ikke finde en middelværdi.
 \section*{2}
-\label{sec:org3ef99c3}
+\label{sec:orgae33286}
 \subsection*{a}
-\label{sec:orgf6b580e}
+\label{sec:org42a07c2}
 \begin{center}
 \begin{tabular}{lrrl}
 p(x, y) & y = −1 & y = 1 & y = 3\\
@@ -66,7 +66,7 @@ Da \(P(X=x,Y=y)=1\) [EPT def. 1], kan vi udregne z ved:
 z &= 1 - 0.6 = 0.4
 \end{align}
 \subsection*{b}
-\label{sec:orgb6e5269}
+\label{sec:org3f740b0}
 Beregn den forventede gevinst
 [EPT Rem: 18]
 \begin{align}
@@ -77,22 +77,21 @@ E[X+Y] &= 1.1 - 0.2 = 0.9
 \end{align}
 
 \subsection*{c}
-\label{sec:org41f3c43}
+\label{sec:org200fb9a}
 beregn kovariansen mellem X og Y. Er X og Y uafhængige?
 $\backslash$\[EPT Def: 19]\\
 $$COV(X,Y) := \mathbb{E}(XY)-\mathbb{E}(x)\mathbb{E}(y)$$
 $$P(XY=-3)=0.4, P(XY=-1)=0.4, P(XY=1)=0.15, P(XY=3)=0.05$$
 $$E(XY)=(-3)*0.4+(-1)*0.4+1*0.15+3*0.05 \Rightarrow -1.03$$
-\\
-\(E(x)\) og \(E(y)\) kender vi fra sidste opgave: \(E(x)=-0.2, E(y)=1.1\)
+$\backslash$\\(E(x)\) og \(E(y)\) kender vi fra sidste opgave: \(E(x)=-0.2, E(y)=1.1\)
 $$COV(X,Y)=(-1.03)-(-0.2)*1.1 \Rightarrow -1.08$$
-\\
+
 Hvilket betyder at de er afhængige af hinanden, da \(cov \neq 0\) [Rem 22 EPT]
 
 \section*{3}
-\label{sec:org9f83c7c}
+\label{sec:orgf1fc0c8}
 \subsection*{a}
-\label{sec:org53a75f0}
+\label{sec:org4a4feea}
 Vi ved at hvis \(A\) har et udfald som er givet,
 har den altid en sandsynlighed \(1\) betinget at det er udfaldet.
 
@@ -168,18 +167,18 @@ P(T=0) &= 0.98309
 \end{align}
 
 \subsection*{b}
-\label{sec:orgd7d68a2}
+\label{sec:org42a97a0}
 Sandsynligheden for ikke at have allergien givet en negativ test er:
 \[P(A=0|T=0)=\frac{P(A=0,T=0)}{P(T=0)}=\frac{0.98307}{0.98309}= 0.9999797\]
 \subsection*{c}
-\label{sec:org549bd04}
+\label{sec:org9c4e3a0}
 Sandsynligheden for at have allergien givet en positiv test er:
 \[P(A=1|T=1)=\frac{P(A=1,T=1)}{P(T=1)}=\frac{0.00998}{0.01}= 0.998\]
 
 \section*{4}
-\label{sec:orga6359bb}
+\label{sec:orga9c9718}
 \subsection*{a}
-\label{sec:org47472fc}
+\label{sec:org50687cf}
 \begin{equation}
 p_i(x) =
 \begin{cases}
@@ -188,9 +187,8 @@ p_i(x) =
 \end{cases}
 \end{equation}
 \subsection*{b}
-\label{sec:org002d771}
-\texttt{ER DET GODT NOK FORKLARET?} \\
-Da \(x_1,x_2,\cdots,x_n\) er disjunkte kan \(P(x_1,x_2,\cdots,x_n)\) udtrykkes som produktet af sandsyndligheden for hvert udfald. \textbf{mangler citation}.
+\label{sec:orgcb740f7}
+Da \(x_1,x_2,\cdots,x_n\) er disjunkte kan \(P(x_1,x_2,\cdots,x_n)\) udtrykkes som produktet af sandsyndligheden for hvert udfald.
 \begin{align}
 P(x_1,x_2,\cdots,x_n) &= P(X_i=x_1) \cdot P(X_i=x_2) \cdots P(X_i=x_n)\\
 &= p_i(X_i=x_1) \cdot p_i(X_i=x_2) \cdots p_i(X_i=x_n)\\
@@ -206,10 +204,11 @@ P(x_1,x_2,\cdots,x_n) &=
 \end{cases}
 \end{align}
 \subsection*{c}
-\label{sec:orgea55c6f}
+\label{sec:org80f82d4}
+Kravene for at en PMF er valid er:
 \begin{align}
 \forall x, \quad p(x) &\ge 0 \\
-\sum_x p(x) &= 1 \\
+\sum_x p(x) &= 1
 \end{align}
 
 \(p_2(x)\) er et produkt af to muglige faktorer \(0\) og \(\frac{1}{365}\).
@@ -224,14 +223,14 @@ udfald.
 \sum_x \frac{1}{365^n} = 365^n \cdot \frac{1}{365^n} = 1 \\
 \]
 \subsection*{d}
-\label{sec:org066610e}
+\label{sec:org62fa957}
 Sandsynligheden for nogen i en gruppe, dvs. 2 eller mere, har fødseldag på samme dag er det omvendte af at ingen i gruppen har fødseldag på samme dag, dvs. 1 eller mindre.
 \begin{align}
 B&=\text{"$\ge$ 2 har fødselsdag på samme dag"}\\
 B^C&=\text{"$\le$ 1 har fødselsdag på samme dag"} = \text{"Alle har en unik fødselsdag"}
 \end{align}
 
-Ethvert udfald vil ligge i enten \(B\) eller \(B^C\), \texttt{ER DET TRIVIELT AT B, BC ER DISJUNKTE?}
+Ethvert udfald vil ligge i enten \(B\) eller \(B^C\) og er derfor disjunkte.
 \[P(x_1,x_2,\cdots,x_n \in B \cup B^C) = 1\]
 \[P(x_1,x_2,\cdots,x_n \in B) = 1 - P(x_1,x_2,\cdots,x_n \in B^C)\]
 

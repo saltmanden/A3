@@ -166,8 +166,7 @@ Derfor er sandsyndligheden for et specifikt udfald for alle elementer i vektoren
 p_2(V) = \prod_{i=1}^n p_1(x_i)
 \]
 #+end_comment
-~ER DET GODT NOK FORKLARET?~ \\
-Da $x_1,x_2,\cdots,x_n$ er disjunkte kan $P(x_1,x_2,\cdots,x_n)$ udtrykkes som produktet af sandsyndligheden for hvert udfald. *mangler citation*.
+Da $x_1,x_2,\cdots,x_n$ er disjunkte kan $P(x_1,x_2,\cdots,x_n)$ udtrykkes som produktet af sandsyndligheden for hvert udfald.
 \begin{align}
 P(x_1,x_2,\cdots,x_n) &= P(X_i=x_1) \cdot P(X_i=x_2) \cdots P(X_i=x_n)\\
 &= p_i(X_i=x_1) \cdot p_i(X_i=x_2) \cdots p_i(X_i=x_n)\\
@@ -183,9 +182,10 @@ P(x_1,x_2,\cdots,x_n) &=
 \end{cases}
 \end{align}
 ** c
+Kravene for at en PMF er valid er:
 \begin{align}
 \forall x, \quad p(x) &\ge 0 \\
-\sum_x p(x) &= 1 \\
+\sum_x p(x) &= 1
 \end{align}
 
 $p_2(x)$ er et produkt af to muglige faktorer $0$ og $\frac{1}{365}$.
@@ -217,7 +217,7 @@ B&=\text{"$\ge$ 2 har fødselsdag på samme dag"}\\
 B^C&=\text{"$\le$ 1 har fødselsdag på samme dag"} = \text{"Alle har en unik fødselsdag"}
 \end{align}
 
-Ethvert udfald vil ligge i enten $B$ eller $B^C$, ~ER DET TRIVIELT AT B, BC ER DISJUNKTE?~
+Ethvert udfald vil ligge i enten $B$ eller $B^C$ og er derfor disjunkte.
 \[P(x_1,x_2,\cdots,x_n \in B \cup B^C) = 1\]
 \[P(x_1,x_2,\cdots,x_n \in B) = 1 - P(x_1,x_2,\cdots,x_n \in B^C)\]
 
